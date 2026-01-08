@@ -458,9 +458,9 @@ export default function Home() {
             <m.div {...fadeIn} className="text-center">
               <Quote className="w-12 h-12 text-warm mx-auto mb-6" />
               <blockquote className="text-2xl md:text-3xl font-serif leading-relaxed mb-6">
-                You know talking to customers matters. You just don&apos;t have time.
-                I do it for you — and you get the insights, the quotes, and the
-                video stories without lifting a finger.
+                We handed Hollie a list of customers. Weeks later, she came back
+                with insights, video case studies, and social content we simply
+                never would&apos;ve created on our own.
               </blockquote>
             </m.div>
           </div>
