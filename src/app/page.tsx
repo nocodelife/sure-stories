@@ -249,7 +249,7 @@ export default function Home() {
         </section>
 
         {/* How it Works */}
-        <section id="how-it-works" className="py-20 md:py-32">
+        <section id="how-it-works" className="py-20 md:py-32 bg-warm-light/50">
           <div className="mx-auto max-w-6xl px-6">
             <motion.div {...fadeIn} className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl mb-4">How it works</h2>
@@ -309,7 +309,7 @@ export default function Home() {
         <section className="py-20 bg-accent text-white">
           <div className="mx-auto max-w-6xl px-6">
             <motion.div {...fadeIn} className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl mb-4">What you&apos;ll learn</h2>
+              <h2 className="text-3xl md:text-4xl mb-4">What you&apos;ll get</h2>
               <p className="text-white/70 text-lg max-w-2xl mx-auto">
                 Deep customer conversations reveal things surveys and NPS scores never will.
               </p>
