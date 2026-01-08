@@ -563,7 +563,7 @@ export default function Home() {
                 href="https://calendar.app.google/ieqBxRF8t14KFur97"
                 className="inline-flex items-center gap-2 bg-accent text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-accent-hover transition-all hover:shadow-lg"
               >
-                Book a 20-minute call
+                Book a 15-minute call
               </a>
             </motion.div>
           </div>
