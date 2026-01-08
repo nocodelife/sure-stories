@@ -7,6 +7,7 @@
   --accent-hover: #152b27;
   --accent-light: #e8f0ee;
   --warm: #c4a574;
+  --warm-text: #7d6035;
   --warm-light: #f5f0e8;
   --muted: #6b6b6b;
 }
@@ -18,6 +19,7 @@
   --color-accent-hover: var(--accent-hover);
   --color-accent-light: var(--accent-light);
   --color-warm: var(--warm);
+  --color-warm-text: var(--warm-text);
   --color-warm-light: var(--warm-light);
   --color-muted: var(--muted);
   --font-serif: var(--font-lora);

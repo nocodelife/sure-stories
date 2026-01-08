@@ -15,6 +15,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://sure-stories.com"),
   title: "Sure Stories — Customer interviews that reveal the truth",
   description:
     "Sure Stories runs calm, structured interviews with your customers and turns what they say into clear insights you can use.",

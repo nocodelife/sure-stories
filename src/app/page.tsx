@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 import {
   MessageCircle,
   Users,
@@ -24,6 +24,12 @@ const fadeIn = {
   transition: { duration: 0.5 },
 };
 
+// Hero animations - no opacity delay to avoid blocking LCP
+const heroFadeIn = {
+  initial: { opacity: 1, y: 0 },
+  animate: { opacity: 1, y: 0 },
+};
+
 const stagger = {
   initial: { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
@@ -33,6 +39,7 @@ const stagger = {
 
 export default function Home() {
   return (
+    <LazyMotion features={domAnimation}>
     <div className="min-h-screen">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-foreground/5">
@@ -56,13 +63,13 @@ export default function Home() {
         <section className="pt-32 pb-20 md:pt-40 md:pb-32">
           <div className="mx-auto max-w-6xl px-6">
             <div className="grid md:grid-cols-2 gap-12 items-center">
-              <motion.div {...fadeIn}>
-                <div className="inline-block px-4 py-1.5 bg-warm-light text-warm text-sm font-medium rounded-full mb-6">
+              <m.div {...heroFadeIn}>
+                <div className="inline-block px-4 py-1.5 bg-warm-light text-warm-text text-sm font-medium rounded-full mb-6">
                   Award-winning documentary interviewer
                 </div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl leading-tight mb-6">
                   Your customers have{" "}
-                  <span className="text-warm">answers</span>. I help you hear them.
+                  <span className="text-warm-text">answers</span>. I help you hear them.
                 </h1>
                 <p className="text-lg text-muted leading-relaxed mb-8 max-w-lg">
                   You know you should talk to customers more. But you&apos;re busy running the business.
@@ -101,20 +108,16 @@ export default function Home() {
                     ))}
                   </div>
                 </div>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="relative"
-              >
+              </m.div>
+              <div className="relative">
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                   <Image
                     src="/hollie_sm.jpg"
                     alt="Hollie Harrington - Customer Interview Expert"
                     width={500}
                     height={600}
+                    priority
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="w-full object-cover"
                   />
                   <div className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg">
@@ -124,7 +127,7 @@ export default function Home() {
                     </p>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </div>
           </div>
         </section>
@@ -132,20 +135,20 @@ export default function Home() {
         {/* Problem/Solution */}
         <section className="py-20 bg-warm-light/50">
           <div className="mx-auto max-w-6xl px-6">
-            <motion.div {...fadeIn} className="text-center mb-16">
+            <m.div {...fadeIn} className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl mb-4">
                 The people paying you have all the{" "}
-                <span className="text-warm">answers</span>.
+                <span className="text-warm-text">answers</span>.
               </h2>
               <p className="text-muted text-lg max-w-2xl mx-auto">
                 Your customers know why they chose you, what nearly stopped them,
                 and how you compare to alternatives. That&apos;s invaluable insight —
                 if you have time to ask.
               </p>
-            </motion.div>
+            </m.div>
 
             <div className="grid md:grid-cols-2 gap-8">
-              <motion.div
+              <m.div
                 {...stagger}
                 transition={{ delay: 0.1 }}
                 className="bg-white rounded-3xl p-8 shadow-sm border border-foreground/5"
@@ -159,9 +162,9 @@ export default function Home() {
                   When you do talk to them, it&apos;s about support issues or renewals —
                   not the deeper questions that shape your product and positioning.
                 </p>
-              </motion.div>
+              </m.div>
 
-              <motion.div
+              <m.div
                 {...stagger}
                 transition={{ delay: 0.2 }}
                 className="bg-accent text-white rounded-3xl p-8 shadow-lg"
@@ -175,7 +178,7 @@ export default function Home() {
                   conversations with customers — without taking time away from
                   running your business.
                 </p>
-              </motion.div>
+              </m.div>
             </div>
           </div>
         </section>
@@ -183,22 +186,22 @@ export default function Home() {
         {/* Surveys vs Interviews */}
         <section className="py-20 md:py-32">
           <div className="mx-auto max-w-6xl px-6">
-            <motion.div {...fadeIn} className="text-center mb-16">
-              <p className="text-warm text-sm font-medium mb-2">Already running surveys?</p>
+            <m.div {...fadeIn} className="text-center mb-16">
+              <p className="text-warm-text text-sm font-medium mb-2">Already running surveys?</p>
               <h2 className="text-3xl md:text-4xl mb-4">Surveys tell you what. Interviews tell you why.</h2>
               <p className="text-muted text-lg max-w-2xl mx-auto">
                 Surveys are great for breadth — quick data from lots of people. But they&apos;re shallow.
                 Interviews go deeper, uncovering the stories and motivations behind the numbers.
               </p>
-            </motion.div>
+            </m.div>
 
             <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              <motion.div
+              <m.div
                 {...stagger}
                 transition={{ delay: 0.1 }}
                 className="bg-white rounded-3xl p-8 shadow-sm border border-foreground/5"
               >
-                <p className="text-warm text-sm font-medium mb-4">Surveys</p>
+                <p className="text-warm-text text-sm font-medium mb-4">Surveys</p>
                 <ul className="space-y-3">
                   {[
                     "Breadth — reach many customers quickly",
@@ -213,14 +216,14 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-              </motion.div>
+              </m.div>
 
-              <motion.div
+              <m.div
                 {...stagger}
                 transition={{ delay: 0.2 }}
                 className="bg-accent text-white rounded-3xl p-8 shadow-lg"
               >
-                <p className="text-warm text-sm font-medium mb-4">Interviews</p>
+                <p className="text-warm-text text-sm font-medium mb-4">Interviews</p>
                 <ul className="space-y-3">
                   {[
                     "Depth — truly understand each customer",
@@ -235,26 +238,26 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-              </motion.div>
+              </m.div>
             </div>
 
-            <motion.p
+            <m.p
               {...fadeIn}
               className="text-center text-muted mt-12 max-w-lg mx-auto"
             >
               You don&apos;t have to choose. Use surveys for the numbers, interviews for the narrative.
               Together, they give you the full picture.
-            </motion.p>
+            </m.p>
           </div>
         </section>
 
         {/* How it Works */}
         <section id="how-it-works" className="py-20 md:py-32 bg-warm-light/50">
           <div className="mx-auto max-w-6xl px-6">
-            <motion.div {...fadeIn} className="text-center mb-16">
+            <m.div {...fadeIn} className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl mb-4">How it works</h2>
               <p className="text-muted text-lg">Four simple steps to customer clarity</p>
-            </motion.div>
+            </m.div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
@@ -283,7 +286,7 @@ export default function Home() {
                   desc: "Clear summary, direct quotes, and written customer stories ready to use.",
                 },
               ].map((item, i) => (
-                <motion.div
+                <m.div
                   key={item.step}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -292,14 +295,14 @@ export default function Home() {
                   className="bg-white rounded-3xl p-6 shadow-sm border border-foreground/5 hover:shadow-md transition-shadow"
                 >
                   <div className="flex items-center gap-3 mb-4">
-                    <span className="text-warm font-medium">{item.step}</span>
+                    <span className="text-warm-text font-medium">{item.step}</span>
                     <div className="w-10 h-10 bg-accent-light rounded-xl flex items-center justify-center">
                       <item.icon className="w-5 h-5 text-accent" />
                     </div>
                   </div>
                   <h3 className="text-lg mb-2">{item.title}</h3>
                   <p className="text-muted text-sm leading-relaxed">{item.desc}</p>
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>
@@ -308,12 +311,12 @@ export default function Home() {
         {/* Features Grid */}
         <section className="py-20 bg-accent text-white">
           <div className="mx-auto max-w-6xl px-6">
-            <motion.div {...fadeIn} className="text-center mb-16">
+            <m.div {...fadeIn} className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl mb-4">What you&apos;ll get</h2>
               <p className="text-white/70 text-lg max-w-2xl mx-auto">
                 Deep customer conversations reveal things surveys and NPS scores never will.
               </p>
-            </motion.div>
+            </m.div>
 
             <div className="grid md:grid-cols-3 gap-6">
               {[
@@ -348,7 +351,7 @@ export default function Home() {
                   desc: "30-45 minute conversations that go beyond surface-level feedback. Real understanding, not just metrics.",
                 },
               ].map((item, i) => (
-                <motion.div
+                <m.div
                   key={item.title}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -361,7 +364,7 @@ export default function Home() {
                   </div>
                   <h3 className="text-lg mb-2">{item.title}</h3>
                   <p className="text-white/70 text-sm leading-relaxed">{item.desc}</p>
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>
@@ -371,7 +374,7 @@ export default function Home() {
         <section className="py-20 md:py-32">
           <div className="mx-auto max-w-6xl px-6">
             <div className="grid md:grid-cols-2 gap-12 items-center">
-              <motion.div {...fadeIn}>
+              <m.div {...fadeIn}>
                 <h2 className="text-3xl md:text-4xl mb-6">What you get</h2>
                 <p className="text-muted mb-8">
                   A complete package designed to give you actionable insights and ready-to-use content.
@@ -386,7 +389,7 @@ export default function Home() {
                     "5 written customer stories, ready to publish",
                     "Expertly edited video case studies for social media & web",
                   ].map((item, i) => (
-                    <motion.div
+                    <m.div
                       key={i}
                       initial={{ opacity: 0, x: -10 }}
                       whileInView={{ opacity: 1, x: 0 }}
@@ -398,7 +401,7 @@ export default function Home() {
                         <Check className="w-4 h-4 text-white" />
                       </div>
                       <span className="text-foreground">{item}</span>
-                    </motion.div>
+                    </m.div>
                   ))}
                 </div>
 
@@ -407,9 +410,9 @@ export default function Home() {
                     <span className="font-medium text-foreground">Timeline:</span> 3-4 weeks from first call
                   </p>
                 </div>
-              </motion.div>
+              </m.div>
 
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -417,7 +420,7 @@ export default function Home() {
                 className="bg-white rounded-3xl p-8 shadow-xl border border-foreground/5"
               >
                 <div className="text-center">
-                  <p className="text-sm text-warm font-medium mb-2">Example Package</p>
+                  <p className="text-sm text-warm-text font-medium mb-2">Example Package</p>
                   <h3 className="text-2xl md:text-3xl mb-2">5 Customer Interviews</h3>
                   <p className="text-muted mb-6">Everything you need to understand your customers</p>
 
@@ -444,7 +447,7 @@ export default function Home() {
                     Smaller and larger packages available
                   </p>
                 </div>
-              </motion.div>
+              </m.div>
             </div>
           </div>
         </section>
@@ -452,24 +455,24 @@ export default function Home() {
         {/* Quote */}
         <section className="py-16 bg-warm-light/50">
           <div className="mx-auto max-w-4xl px-6">
-            <motion.div {...fadeIn} className="text-center">
+            <m.div {...fadeIn} className="text-center">
               <Quote className="w-12 h-12 text-warm mx-auto mb-6" />
               <blockquote className="text-2xl md:text-3xl font-serif leading-relaxed mb-6">
                 You know talking to customers matters. You just don&apos;t have time.
                 I do it for you — and you get the insights, the quotes, and the
                 video stories without lifting a finger.
               </blockquote>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
         {/* Who This Is For */}
         <section className="py-20 md:py-32">
           <div className="mx-auto max-w-6xl px-6">
-            <motion.div {...fadeIn} className="text-center mb-16">
-              <p className="text-warm text-sm font-medium mb-2">Who is this for?</p>
+            <m.div {...fadeIn} className="text-center mb-16">
+              <p className="text-warm-text text-sm font-medium mb-2">Who is this for?</p>
               <h2 className="text-3xl md:text-4xl">This is for busy founders who...</h2>
-            </motion.div>
+            </m.div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
@@ -480,7 +483,7 @@ export default function Home() {
                 "Are preparing for a rebrand, launch, or funding round",
                 "Want video testimonials without the awkward DIY approach",
               ].map((item, i) => (
-                <motion.div
+                <m.div
                   key={i}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -492,7 +495,7 @@ export default function Home() {
                     <Check className="w-4 h-4 text-accent" />
                   </div>
                   <p className="text-foreground leading-relaxed">{item}</p>
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>
@@ -502,7 +505,7 @@ export default function Home() {
         <section id="about" className="py-20 bg-accent text-white">
           <div className="mx-auto max-w-6xl px-6">
             <div className="grid md:grid-cols-2 gap-12 items-center">
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -525,8 +528,8 @@ export default function Home() {
                     When she&apos;s not interviewing customers, she works as an actress. She lives in Norwich, UK.
                   </p>
                 </div>
-              </motion.div>
-              <motion.div
+              </m.div>
+              <m.div
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -537,9 +540,10 @@ export default function Home() {
                   alt="Hollie Harrington"
                   width={400}
                   height={500}
+                  sizes="(max-width: 768px) 100vw, 400px"
                   className="rounded-3xl shadow-2xl mx-auto"
                 />
-              </motion.div>
+              </m.div>
             </div>
           </div>
         </section>
@@ -547,7 +551,7 @@ export default function Home() {
         {/* Final CTA */}
         <section id="get-started" className="py-20 md:py-32">
           <div className="mx-auto max-w-4xl px-6 text-center">
-            <motion.div {...fadeIn}>
+            <m.div {...fadeIn}>
               <Calendar className="w-12 h-12 text-accent mx-auto mb-6" />
               <h2 className="text-3xl md:text-4xl mb-4">
                 Ready to hear what your customers really think?
@@ -563,7 +567,7 @@ export default function Home() {
               >
                 Book a 15-minute call
               </a>
-            </motion.div>
+            </m.div>
           </div>
         </section>
       </main>
@@ -576,5 +580,6 @@ export default function Home() {
         </div>
       </footer>
     </div>
+    </LazyMotion>
   );
 }
