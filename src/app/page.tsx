@@ -522,7 +522,7 @@ export default function Home() {
                     people speak.
                   </p>
                   <p className="text-white/60 text-sm">
-                    When she&apos;s not interviewing customers, she works as an actress. She lives in Norwich.
+                    When she&apos;s not interviewing customers, she works as an actress. She lives in Norwich, UK.
                   </p>
                 </div>
               </motion.div>
@@ -571,7 +571,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="border-t border-foreground/10 py-8">
         <div className="mx-auto max-w-6xl px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-muted">Sure Stories · Norwich</p>
+          <p className="text-sm text-muted">Sure Stories · Norwich, UK</p>
           <p className="text-xs text-muted">© 2025 Sure Stories. All rights reserved.</p>
         </div>
       </footer>
