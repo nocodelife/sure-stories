@@ -14,6 +14,7 @@ import {
   Sparkles,
   Shield,
   Heart,
+  Star,
 } from "lucide-react";
 
 const fadeIn = {
@@ -79,6 +80,31 @@ export default function Home() {
                 >
                   Book a conversation
                 </a>
+
+                {/* Testimonial */}
+                <div className="mt-10 pt-8 border-t border-foreground/10">
+                  <p className="text-muted text-sm leading-relaxed mb-4 max-w-md">
+                    &ldquo;We gave Hollie a list of clients. A few weeks later she came back with reports, insights, video case studies, social media clips... all so valuable yet we never would have done it ourselves.&rdquo;
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <Image
+                      src="/chads.jpg"
+                      alt="Chad Sakonchick"
+                      width={40}
+                      height={40}
+                      className="rounded-full"
+                    />
+                    <div>
+                      <p className="text-sm font-medium">Chad Sakonchick</p>
+                      <p className="text-xs text-muted">Founder, BetterLegal</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-0.5 mt-3">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-warm text-warm" />
+                    ))}
+                  </div>
+                </div>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
