@@ -48,7 +48,7 @@ export default function Home() {
               About
             </a>
             <a
-              href="#get-started"
+              href="https://calendar.app.google/ieqBxRF8t14KFur97"
               className="text-sm bg-accent text-white px-5 py-2.5 rounded-lg hover:bg-accent-hover transition-colors"
             >
               Get Started
@@ -75,7 +75,7 @@ export default function Home() {
                   I handle the interviews and turn them into insights, stories, and videos you can actually use.
                 </p>
                 <a
-                  href="#get-started"
+                  href="https://calendar.app.google/ieqBxRF8t14KFur97"
                   className="inline-flex items-center gap-2 bg-accent text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-accent-hover transition-all hover:shadow-lg"
                 >
                   Book a conversation
@@ -560,7 +560,7 @@ export default function Home() {
                 No pitch. No pressure. Just a short conversation to see if this is right for you.
               </p>
               <a
-                href="#"
+                href="https://calendar.app.google/ieqBxRF8t14KFur97"
                 className="inline-flex items-center gap-2 bg-accent text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-accent-hover transition-all hover:shadow-lg"
               >
                 Book a 20-minute call
