@@ -47,12 +47,6 @@ export default function Home() {
             <a href="#about" className="text-sm text-muted hover:text-foreground transition-colors">
               About
             </a>
-            <a
-              href="https://calendar.app.google/ieqBxRF8t14KFur97"
-              className="text-sm bg-accent text-white px-5 py-2.5 rounded-lg hover:bg-accent-hover transition-colors"
-            >
-              Get Started
-            </a>
           </div>
         </div>
       </nav>
@@ -76,6 +70,8 @@ export default function Home() {
                 </p>
                 <a
                   href="https://calendar.app.google/ieqBxRF8t14KFur97"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-accent text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-accent-hover transition-all hover:shadow-lg"
                 >
                   Book a conversation
@@ -561,6 +557,8 @@ export default function Home() {
               </p>
               <a
                 href="https://calendar.app.google/ieqBxRF8t14KFur97"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-accent text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-accent-hover transition-all hover:shadow-lg"
               >
                 Book a 15-minute call
