@@ -14,7 +14,6 @@ import {
   Sparkles,
   Shield,
   Heart,
-  Play,
 } from "lucide-react";
 
 const fadeIn = {
@@ -74,10 +73,6 @@ export default function Home() {
                   You know you should talk to customers more. But you&apos;re busy running the business.
                   I handle the interviews and turn them into insights, stories, and videos you can actually use.
                 </p>
-                <p className="text-sm text-muted mb-8 max-w-lg">
-                  I&apos;m Hollie — I&apos;ve spent years as a documentary filmmaker learning how to
-                  draw out real stories from real people. Now I bring that skill to customer research.
-                </p>
                 <a
                   href="#get-started"
                   className="inline-flex items-center gap-2 bg-accent text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-accent-hover transition-all hover:shadow-lg"
@@ -101,27 +96,10 @@ export default function Home() {
                     className="w-full object-cover"
                   />
                   <div className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg">
-                    <div className="flex items-center gap-4">
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center">
-                          <Mic className="w-5 h-5 text-white" />
-                        </div>
-                        <div>
-                          <p className="font-medium text-sm">Interviews</p>
-                          <p className="text-xs text-muted">30-45 min</p>
-                        </div>
-                      </div>
-                      <div className="w-px h-8 bg-foreground/10" />
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 bg-warm rounded-full flex items-center justify-center">
-                          <Play className="w-5 h-5 text-white" />
-                        </div>
-                        <div>
-                          <p className="font-medium text-sm">Video Stories</p>
-                          <p className="text-xs text-muted">Ready to share</p>
-                        </div>
-                      </div>
-                    </div>
+                    <p className="text-sm text-foreground leading-relaxed">
+                      I&apos;m Hollie — I&apos;ve spent years as a documentary filmmaker learning how to
+                      draw out real stories from real people. Now I bring that skill to customer research.
+                    </p>
                   </div>
                 </div>
               </motion.div>
