@@ -94,7 +94,7 @@ export default function Home() {
               >
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                   <Image
-                    src="/hollie.jpg"
+                    src="/hollie_sm.jpg"
                     alt="Hollie Harrington - Customer Interview Expert"
                     width={500}
                     height={600}
@@ -533,7 +533,7 @@ export default function Home() {
                 className="order-1 md:order-2"
               >
                 <Image
-                  src="/hollie.jpg"
+                  src="/hollie_pic.jpg"
                   alt="Hollie Harrington"
                   width={400}
                   height={500}
