@@ -18,6 +18,22 @@ export const metadata: Metadata = {
   title: "Sure Stories — Customer interviews that reveal the truth",
   description:
     "Sure Stories runs calm, structured interviews with your customers and turns what they say into clear insights you can use.",
+  icons: {
+    icon: "/favicon.ico",
+  },
+  openGraph: {
+    title: "Sure Stories — Customer interviews that reveal the truth",
+    description:
+      "Sure Stories runs calm, structured interviews with your customers and turns what they say into clear insights you can use.",
+    images: ["/social.jpg"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sure Stories — Customer interviews that reveal the truth",
+    description:
+      "Sure Stories runs calm, structured interviews with your customers and turns what they say into clear insights you can use.",
+    images: ["/social.jpg"],
+  },
 };
 
 export default function RootLayout({
