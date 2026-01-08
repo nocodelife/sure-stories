@@ -64,15 +64,19 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <motion.div {...fadeIn}>
                 <div className="inline-block px-4 py-1.5 bg-warm-light text-warm text-sm font-medium rounded-full mb-6">
-                  For B2B Founders & Product Leaders
+                  Award-winning documentary interviewer
                 </div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl leading-tight mb-6">
                   Your customers have{" "}
-                  <span className="text-warm">answers</span>. We help you hear them.
+                  <span className="text-warm">answers</span>. I help you hear them.
                 </h1>
                 <p className="text-lg text-muted leading-relaxed mb-8 max-w-lg">
                   You know you should talk to customers more. But you&apos;re busy running the business.
-                  We handle the interviews and turn them into insights, stories, and videos you can actually use.
+                  I handle the interviews and turn them into insights, stories, and videos you can actually use.
+                </p>
+                <p className="text-sm text-muted mb-8 max-w-lg">
+                  I&apos;m Hollie — I&apos;ve spent years as a documentary filmmaker learning how to
+                  draw out real stories from real people. Now I bring that skill to customer research.
                 </p>
                 <a
                   href="#get-started"
@@ -165,14 +169,82 @@ export default function Home() {
                 <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center mb-6">
                   <Check className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-xl mb-4">Let Us Handle It</h3>
+                <h3 className="text-xl mb-4">Let Me Handle It</h3>
                 <p className="text-white/80 leading-relaxed">
-                  We run the interviews so you don&apos;t have to. You get deep, honest
+                  I run the interviews so you don&apos;t have to. You get deep, honest
                   conversations with customers — without taking time away from
                   running your business.
                 </p>
               </motion.div>
             </div>
+          </div>
+        </section>
+
+        {/* Surveys vs Interviews */}
+        <section className="py-20 md:py-32">
+          <div className="mx-auto max-w-6xl px-6">
+            <motion.div {...fadeIn} className="text-center mb-16">
+              <p className="text-warm text-sm font-medium mb-2">Already running surveys?</p>
+              <h2 className="text-3xl md:text-4xl mb-4">Surveys tell you what. Interviews tell you why.</h2>
+              <p className="text-muted text-lg max-w-2xl mx-auto">
+                Surveys are great for breadth — quick data from lots of people. But they&apos;re shallow.
+                Interviews go deeper, uncovering the stories and motivations behind the numbers.
+              </p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              <motion.div
+                {...stagger}
+                transition={{ delay: 0.1 }}
+                className="bg-white rounded-3xl p-8 shadow-sm border border-foreground/5"
+              >
+                <p className="text-warm text-sm font-medium mb-4">Surveys</p>
+                <ul className="space-y-3">
+                  {[
+                    "Breadth — reach many customers quickly",
+                    "Structured questions, limited answers",
+                    "Shows patterns and trends",
+                    "Hard to understand the 'why'",
+                    "Shallow — surface-level feedback",
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-3 text-muted">
+                      <span className="text-warm mt-1">•</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+
+              <motion.div
+                {...stagger}
+                transition={{ delay: 0.2 }}
+                className="bg-accent text-white rounded-3xl p-8 shadow-lg"
+              >
+                <p className="text-warm text-sm font-medium mb-4">Interviews</p>
+                <ul className="space-y-3">
+                  {[
+                    "Depth — truly understand each customer",
+                    "Open conversation, follow-up questions",
+                    "Reveals the stories behind decisions",
+                    "Uncovers motivations and emotions",
+                    "Rich — publishable quotes and insights",
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-3 text-white/80">
+                      <span className="text-warm mt-1">•</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            </div>
+
+            <motion.p
+              {...fadeIn}
+              className="text-center text-muted mt-12 max-w-lg mx-auto"
+            >
+              You don&apos;t have to choose. Use surveys for the numbers, interviews for the narrative.
+              Together, they give you the full picture.
+            </motion.p>
           </div>
         </section>
 
@@ -189,25 +261,25 @@ export default function Home() {
                 {
                   step: "01",
                   icon: MessageCircle,
-                  title: "We Talk",
+                  title: "Discovery Call",
                   desc: "A short call to understand your business and what you want to learn.",
                 },
                 {
                   step: "02",
                   icon: Users,
-                  title: "We Plan",
+                  title: "Planning",
                   desc: "Together we identify which customers to speak with and what questions matter.",
                 },
                 {
                   step: "03",
                   icon: Mic,
-                  title: "We Interview",
-                  desc: "Hollie interviews each customer one-on-one. 30-45 minutes, recorded.",
+                  title: "Interviews",
+                  desc: "I interview each customer one-on-one. 30-45 minutes, recorded.",
                 },
                 {
                   step: "04",
                   icon: FileText,
-                  title: "You Get Insights",
+                  title: "Insights",
                   desc: "Clear summary, direct quotes, and written customer stories ready to use.",
                 },
               ].map((item, i) => (
@@ -263,7 +335,7 @@ export default function Home() {
                 {
                   icon: Calendar,
                   title: "Your Time Back",
-                  desc: "We handle scheduling, interviews, and follow-ups. You get the insights without the calendar chaos.",
+                  desc: "I handle scheduling, interviews, and follow-ups. You get the insights without the calendar chaos.",
                 },
                 {
                   icon: FileText,
@@ -384,7 +456,7 @@ export default function Home() {
               <Quote className="w-12 h-12 text-warm mx-auto mb-6" />
               <blockquote className="text-2xl md:text-3xl font-serif leading-relaxed mb-6">
                 You know talking to customers matters. You just don&apos;t have time.
-                We do it for you — and you get the insights, the quotes, and the
+                I do it for you — and you get the insights, the quotes, and the
                 video stories without lifting a finger.
               </blockquote>
             </motion.div>
